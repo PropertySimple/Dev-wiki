@@ -22,3 +22,20 @@ http://archdaily.github.io/softwre-engineering/git/gitflow/2014/03/19/our-gitflo
 	$ git pull origin master
 	$ git merge --no-ff new-feature
 	$ git push origin master
+	
+	
+Above There are conflicts and git suggests to do `git rebase --continue`
+You can do something like this (to be improved)::
+
+    git rebase --abort
+    git fetch origin 
+    git rebase origin/master
+
+    Resolve the conflicting files
+
+    git rebase --continue
+    git push origin <mybranch>
+    git checkout master
+    git merge --no-ff fix-featured-vid-count
+    git push origin master
+
